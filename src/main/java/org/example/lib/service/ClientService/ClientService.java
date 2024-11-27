@@ -3,6 +3,7 @@ package org.example.lib.service.ClientService;
 import lombok.AllArgsConstructor;
 import org.example.lib.dao.entity.Client;
 import org.example.lib.dao.repository.ClientRepository;
+import org.example.lib.service.ClientService.i.IClientService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

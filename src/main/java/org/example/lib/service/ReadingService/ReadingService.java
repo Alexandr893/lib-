@@ -8,6 +8,8 @@ import org.example.lib.dao.repository.BookRepository;
 import org.example.lib.dao.repository.ClientRepository;
 import org.example.lib.dao.repository.ReadingRepository;
 import org.example.lib.dto.ReadingDto;
+import org.example.lib.exception.EntityNotFoundException;
+import org.example.lib.service.ReadingService.i.IReadingService;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -30,9 +32,9 @@ public class ReadingService implements IReadingService {
     @Override
     public Reading saveReading(Reading reading, Long bookId, Long clientId) {
         Book book = bookRepository.findById(bookId)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid book Id: " + bookId));
+                .orElseThrow(() -> new EntityNotFoundException("Invalid book Id: " + bookId));
         Client client = clientRepository.findById(clientId)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid client Id: " + clientId));
+                .orElseThrow(() -> new EntityNotFoundException("Invalid client Id: " + clientId));
 
         reading.setBook(book);
         reading.setClient(client);
@@ -57,7 +59,6 @@ public class ReadingService implements IReadingService {
                 .map(this::convertToDto)
                 .collect(Collectors.toList());
     }
-
 
     private ReadingDto convertToDto(Reading reading) {
         return new ReadingDto(

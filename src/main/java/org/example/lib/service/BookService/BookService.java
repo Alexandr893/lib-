@@ -3,6 +3,7 @@ package org.example.lib.service.BookService;
 import lombok.AllArgsConstructor;
 import org.example.lib.dao.entity.Book;
 import org.example.lib.dao.repository.BookRepository;
+import org.example.lib.service.BookService.i.IBookService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

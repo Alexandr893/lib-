@@ -1,4 +1,4 @@
-package org.example.lib.service.ReadingService;
+package org.example.lib.service.ReadingService.i;
 
 import org.example.lib.dao.entity.Book;
 import org.example.lib.dao.entity.Client;

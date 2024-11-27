@@ -1,4 +1,4 @@
-package org.example.lib.service.ClientService;
+package org.example.lib.service.ClientService.i;
 
 import org.example.lib.dao.entity.Client;
 

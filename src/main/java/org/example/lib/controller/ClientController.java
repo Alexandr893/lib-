@@ -2,7 +2,7 @@ package org.example.lib.controller;
 
 import lombok.AllArgsConstructor;
 import org.example.lib.dao.entity.Client;
-import org.example.lib.service.ClientService.IClientService;
+import org.example.lib.service.ClientService.i.IClientService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;

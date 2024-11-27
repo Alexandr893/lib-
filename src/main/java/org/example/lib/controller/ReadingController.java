@@ -2,7 +2,7 @@ package org.example.lib.controller;
 
 import lombok.AllArgsConstructor;
 import org.example.lib.dao.entity.Reading;
-import org.example.lib.service.ReadingService.IReadingService;
+import org.example.lib.service.ReadingService.i.IReadingService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 @AllArgsConstructor
 @RequestMapping("/readings")
 public class ReadingController {
-
 
     private final IReadingService readingService;
 
