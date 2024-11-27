@@ -60,7 +60,7 @@ public class ReadingService implements IReadingService {
     @Override
     @Cacheable("restReadings")
     public List<ReadingDto> getAllReadings() {
-        return readingRepository.findAll().stream()
+        return readingRepository.findAll().parallelStream()
                 .map(this::convertToDto)
                 .collect(Collectors.toList());
     }
