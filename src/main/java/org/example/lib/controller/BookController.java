@@ -2,7 +2,7 @@ package org.example.lib.controller;
 
 import lombok.AllArgsConstructor;
 import org.example.lib.dao.entity.Book;
-import org.example.lib.dao.repository.BookRepository;
+import org.example.lib.service.BookService.IBookService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -12,12 +12,11 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/books")
 public class BookController {
 
-
-    private BookRepository bookRepository;
+    private final IBookService bookService;
 
     @GetMapping
     public String listBooks(Model model) {
-        model.addAttribute("books", bookRepository.findAll());
+        model.addAttribute("books", bookService.findAllBooks());
         return "books";
     }
 
@@ -29,14 +28,13 @@ public class BookController {
 
     @PostMapping
     public String saveBook(@ModelAttribute("book") Book book) {
-        bookRepository.save(book);
+        bookService.saveBook(book);
         return "redirect:/books";
     }
 
     @GetMapping("/edit/{id}")
     public String showEditBookForm(@PathVariable("id") Long id, Model model) {
-        Book book = bookRepository.findById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid book Id:" + id));
+        Book book = bookService.findBookById(id);
         model.addAttribute("book", book);
         return "edit-book";
     }
@@ -44,7 +42,7 @@ public class BookController {
     @PostMapping("/update/{id}")
     public String updateBook(@PathVariable("id") Long id, @ModelAttribute("book") Book book) {
         book.setId(id);
-        bookRepository.save(book);
+        bookService.saveBook(book);
         return "redirect:/books";
     }
 }
