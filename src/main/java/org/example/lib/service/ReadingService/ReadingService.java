@@ -10,6 +10,7 @@ import org.example.lib.dao.repository.ReadingRepository;
 import org.example.lib.dto.ReadingDto;
 import org.example.lib.exception.EntityNotFoundException;
 import org.example.lib.service.ReadingService.i.IReadingService;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -25,6 +26,7 @@ public class ReadingService implements IReadingService {
     private final ClientRepository clientRepository;
 
     @Override
+    @Cacheable("readings")
     public List<Reading> findAllReadings() {
         return readingRepository.findAll();
     }
@@ -43,17 +45,20 @@ public class ReadingService implements IReadingService {
     }
 
     @Override
+    @Cacheable("books")
     public List<Book> findAllBooks() {
         return bookRepository.findAll();
     }
 
     @Override
+    @Cacheable("clients")
     public List<Client> findAllClients() {
         return clientRepository.findAll();
     }
 
 
     @Override
+    @Cacheable("restReadings")
     public List<ReadingDto> getAllReadings() {
         return readingRepository.findAll().stream()
                 .map(this::convertToDto)
