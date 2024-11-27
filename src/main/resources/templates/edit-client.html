@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Редактировать клиента</title>
+</head>
+<body>
+<h1>Редактировать клиента</h1>
+<form th:action="@{/clients/update/{id}(id=${client.id})}" th:object="${client}" method="post">
+  <label>ФИО: <input type="text" th:field="*{fullName}" required /></label><br/>
+  <label>Дата рождения: <input type="date" th:field="*{birthDate}" required /></label><br/>
+  <input type="submit" value="Сохранить"/>
+</form>
+<a href="/clients">Назад к списку клиентов</a>
+</body>
+</html>

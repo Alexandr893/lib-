@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Список записей о чтении</title>
+</head>
+<body>
+<h1>Список записей о чтении</h1>
+<a href="/readings/new">Добавить запись</a>
+<table>
+  <thead>
+  <tr>
+    <th>Книга</th>
+    <th>Клиент</th>
+    <th>Дата получения</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="reading : ${readings}">
+    <td th:text="${reading.book.title}"></td>
+    <td th:text="${reading.client.fullName}"></td>
+    <td th:text="${reading.dateTaken}"></td>
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
