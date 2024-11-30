@@ -14,7 +14,7 @@
 - Spring Boot 2.x
 - Spring Data JPA (Hibernate)
 - PostgreSQL 15
-- Maven
+- Maven 3.9.9
 
 ## Установка и запуск
 
