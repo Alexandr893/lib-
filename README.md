@@ -45,4 +45,4 @@
     - java -jar target/lib-0.0.1-SNAPSHOT.jar
 
 
-### Приложение будет доступно по адресу http://localhost:9060.
+### Приложение будет доступно по адресу http://localhost:9060/books
