@@ -47,5 +47,5 @@
 
 ### Приложение будет доступно по адресу http://localhost:9060/books
 ### Работа с записями по http://localhost:9060/readings
-### Тестирование Rest Api по роуту http://localhost:9060/api/readings
-    - /get
+### Тестирование Rest Api по роуту http://localhost:9060/api/readings/get
+   
